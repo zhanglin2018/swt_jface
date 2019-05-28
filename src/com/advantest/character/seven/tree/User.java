@@ -10,7 +10,7 @@ public class User {
 	
 	private User manager;
 	
-	private Vector underlings;
+	private Vector<User> underlings;
 	
 	public User(String id, String name) {
 		this.id = id;
@@ -41,9 +41,9 @@ public class User {
 		this.manager = manager;
 	}
 
-	public Vector getUnderlings() {
+	public Vector<User> getUnderlings() {
 		if(underlings == null)
-			underlings = new Vector();
+			underlings = new Vector<User>();
 		return underlings;
 	}	
 }

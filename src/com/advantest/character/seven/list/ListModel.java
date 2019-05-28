@@ -13,10 +13,10 @@ public class ListModel {
 
 	private PropertyChangeSupport delegate;
 
-	private Vector content;
+	private Vector<Object> content;
 
 	public ListModel() {
-		content = new Vector();
+		content = new Vector<Object>();
 		delegate = new PropertyChangeSupport(this);
 	}
 

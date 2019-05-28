@@ -10,6 +10,7 @@ import org.eclipse.jface.viewers.Viewer;
 
 public class UserTreeContentProvider implements ITreeContentProvider,
 		PropertyChangeListener {
+	private TreeViewer viewer;
 
 	public Object[] getChildren(Object parentElement) {
 		return ((User) parentElement).getUnderlings().toArray();
@@ -30,10 +31,10 @@ public class UserTreeContentProvider implements ITreeContentProvider,
 		return new Object[0];
 	}
 
-	private TreeViewer viewer;
 
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		this.viewer = (TreeViewer) viewer;
+		
 		if (oldInput != null)
 			((UserStructure) oldInput).removePropertyChangeListener(this);
 		if (newInput != null)

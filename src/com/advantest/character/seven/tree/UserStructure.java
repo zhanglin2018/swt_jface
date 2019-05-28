@@ -24,6 +24,7 @@ public class UserStructure {
 	/**
 	 */
 	public void add(int[] parentPath, User newUser) {
+		System.out.println("add called.");
 		User parent = findUser(parentPath);
 		if (parent != null && !parent.getUnderlings().contains(newUser)) {
 			if (parent.getUnderlings().add(newUser)) {
@@ -37,6 +38,8 @@ public class UserStructure {
 	/**
 	 */
 	public void remove(int[] path) {
+		System.out.println("remove called.");
+
 		User theUser = findUser(path);
 		if (theUser != null
 				&& theUser.getManager().getUnderlings().remove(theUser)) {
@@ -51,6 +54,8 @@ public class UserStructure {
 	 */
 	protected User findUser(int[] path) {
 		try {
+			System.out.println("findUser called.");
+
 			User current = president;
 			for (int i = 0; i < path.length; i++) {
 				current = (User) current.getUnderlings().get(path[i]);

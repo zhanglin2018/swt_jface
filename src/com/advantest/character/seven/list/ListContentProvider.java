@@ -14,7 +14,8 @@ public class ListContentProvider implements IStructuredContentProvider,
 
 	private ListModel model;
 
-	public Object[] getElements(Object inputElement) {
+	@Override
+	public Object[] getElements(Object arg0) {
 		return model.elements();
 	}
 
@@ -34,10 +35,12 @@ public class ListContentProvider implements IStructuredContentProvider,
 
 	}
 
+	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		if (ListModel.ADD_ELEMENT.equals(evt.getPropertyName()))
 			viewer.add(evt.getNewValue());
 		if (ListModel.REMOVE_ELEMENT.equals(evt.getPropertyName()))
 			viewer.remove(evt.getNewValue());
 	}
+
 }

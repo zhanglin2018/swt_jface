@@ -24,16 +24,20 @@ public class UsingTableViewer {
 		shell.setLayout(new FillLayout());
 
 		Table table = new Table(shell, SWT.BORDER);
+		
 		TableColumn column1 = new TableColumn(table, SWT.NONE);
 		column1.setText("ID");
 		column1.setWidth(100);
+		
 		TableColumn column2 = new TableColumn(table, SWT.NONE);
 		column2.setWidth(100);
 		column2.setText("Name");
+		
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 		
 		TableViewer viewer = new TableViewer(table);	
+		
 		viewer.setContentProvider(new TableContentProvider());
 		viewer.setLabelProvider(new TableLabelProvider());
 
@@ -48,9 +52,12 @@ public class UsingTableViewer {
 		input.add(new User("3", "3"));
 
 		while (!shell.isDisposed())
+		{
 			if (!display.readAndDispatch())
+			{
 				display.sleep();
-
+			}
+		}
 	}
 
 }

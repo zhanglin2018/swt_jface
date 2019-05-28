@@ -4,26 +4,28 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
 
-import com.advantest.character.seven.table.TableLabelProvider;
 
 
 public class UsingTreeViewer {
 
-	private Shell sShell = null;
-	private Tree tree = null;
+	private static Shell sShell = null;
+	private static Tree tree = null;
 
 	/**
 	 * This method initializes sShell
 	 */
-	private void createSShell() {
-		sShell = new Shell();
+	public static void main(String[] args) {
+		Display display = Display.getDefault();
+		sShell = new Shell(display);
 		sShell.setText("Shell");
-		sShell.setSize(new Point(300, 200));
+		sShell.setSize(new Point(349, 252));
 		sShell.setLayout(new FillLayout());
+		
 		tree = new Tree(sShell, SWT.NONE);
 		tree.setHeaderVisible(true);
 		tree.setLinesVisible(true);
@@ -35,20 +37,33 @@ public class UsingTreeViewer {
 		treeColumn1.setText("Name");
 		
 		TreeViewer treeViewer = new TreeViewer(tree);
+		
 		treeViewer.setContentProvider(new UserTreeContentProvider());
-		treeViewer.setLabelProvider(new TableLabelProvider());
+		treeViewer.setLabelProvider(new TreeLabelProvider());
 		
 		User president = new User("0","President");
-		User manager1 = new User("1","Manager 1");
-		User manager2 = new User("2","Manager 2");
-		president.getUnderlings().add(manager1);
-		president.getUnderlings().add(manager2);
-		manager1.setManager(president);
-		manager2.setManager(president);
-		
 		UserStructure input = new UserStructure(president);
-		
 		treeViewer.setInput(input);
+		
+		input.add(new int[]{}, new User("0", "hua wei"));
+		input.add(new int[]{}, new User("1", "apple"));
+
+		input.add(new int[]{0}, new User("2", "Manager0"));
+		input.add(new int[]{0}, new User("3", "Manager1"));
+		
+		
+		
+		sShell.open();
+		sShell.layout();
+
+		while (!sShell.isDisposed())
+		{
+			if (!display.readAndDispatch())
+			{
+				display.sleep();
+			}
+		}
+		
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.advantest.character.seven.table;
 
+
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
@@ -11,24 +12,27 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
+import com.advantest.character.seven.list.User;
+
 public class UsingTable {
 
-	private Shell sShell = null;  //  @jve:decl-index=0:visual-constraint="71,58"
-	private Table table = null;
-	/**
-	 * This method initializes sShell
-	 */
-	private void createSShell() {
-		sShell = new Shell();
+	private static Shell sShell = null;  
+	private static Table table = null;
+     
+	public static void main(String[] args) {
+		Display display = Display.getDefault();
+		sShell = new Shell(display);
 		sShell.setText("Shell");
 		sShell.setSize(new Point(349, 252));
 		sShell.setLayout(new FillLayout());
+		
 		table = new Table(sShell, SWT.BORDER | SWT.SINGLE | SWT.FULL_SELECTION);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 		
-		Image image1 = new Image(Display.getCurrent(), getClass().getResourceAsStream("/book/ch7/table/icon1.gif"));
-		Image image2 = new Image(Display.getCurrent(), getClass().getResourceAsStream("/book/ch7/table/icon2.gif"));
+		Image image1 = new Image(Display.getCurrent(), UsingTable.class.getResourceAsStream("icon1.gif"));
+		Image image2 = new Image(Display.getCurrent(), UsingTable.class.getResourceAsStream("icon2.gif"));
+		
 		ImageRegistry registry = new ImageRegistry();
 		registry.put("image1", image1);
 		registry.put("image2", image2);
@@ -50,6 +54,15 @@ public class UsingTable {
 		TableItem item2 = new TableItem(table,SWT.NONE);
 		item2.setText(new String[]{"Content 21","Content 22"});
 		item2.setImage(new Image[]{image1,image2});
+		
+		sShell.open();
+		
+		sShell.layout();
+
+
+		while (!sShell.isDisposed())
+			if (!display.readAndDispatch())
+				display.sleep();
 	}
 
 }

@@ -35,7 +35,9 @@ public class TextEditor2 {
 		Display display = new Display();
 		Shell shell = new Shell(display);
 		shell.setLayout(new FillLayout());
+		
 		StyledText styledText = new StyledText(shell, SWT.WRAP | SWT.BORDER);
+		
 		styledText.setText(text);
 		styledText.setLineIndent(0, 1, 50);
 		styledText.setLineAlignment(2, 1, SWT.CENTER);
@@ -45,6 +47,7 @@ public class TextEditor2 {
 		
 		shell.setSize(300, 400);
 		shell.open();
+		
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch())
 				display.sleep();

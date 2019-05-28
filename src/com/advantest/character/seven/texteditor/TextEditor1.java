@@ -35,6 +35,7 @@ public static void main(String[] args) {
 	
 	StyledText text = new StyledText (shell, SWT.BORDER);
 	text.setText("The quick brown fox jumps over the lazy dog.");
+	
 	StyleRange style1 = new StyleRange();
 	style1.start = 0;
 	style1.length = 9;
@@ -61,6 +62,7 @@ public static void main(String[] args) {
 	
 	shell.pack();
 	shell.open();
+	
 	while (!shell.isDisposed()) {
 		if (!display.readAndDispatch())
 			display.sleep();
