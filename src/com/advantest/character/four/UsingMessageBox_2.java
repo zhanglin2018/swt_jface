@@ -21,6 +21,7 @@ public class UsingMessageBox_2 {
 		Button showTheMessageButton = new Button(messageboxDemoShell, SWT.PUSH);
 		showTheMessageButton.setText("Show the Message Box");
 		showTheMessageButton.setBounds(10, 10, 196, 24);
+		
 		showTheMessageButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				MessageBox mb = new MessageBox(messageboxDemoShell,
@@ -32,6 +33,8 @@ public class UsingMessageBox_2 {
 						SWT.ICON_INFORMATION | SWT.OK);
 				resBox.setText("The result");
 				int result = mb.open();
+				
+				
 				if (SWT.OK == result) {// 如果用户点击的是OK
 					resBox.setMessage("You have chosen OK button!");
 				} else if(SWT.CANCEL == result){// 用户点击了Cancel或窗口的关闭按钮

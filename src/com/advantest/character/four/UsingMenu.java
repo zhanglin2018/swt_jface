@@ -7,6 +7,10 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Shell;
 
+/*
+ * show menu when clicking menu item.
+ */
+
 public class UsingMenu {
 
 	public static void main(String[] args) {

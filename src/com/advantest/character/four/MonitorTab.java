@@ -44,6 +44,7 @@ public class MonitorTab {
 						+ " is selected");
 			}
 		});
+		
 		tabFolder.setBounds(10, 10, 242, 234);
 
 		tabfolderDemoShell.open();

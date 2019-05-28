@@ -24,6 +24,7 @@ public class UsingMessageBox_1 {
 		Button showTheMessageButton = new Button(messageboxDemoShell, SWT.PUSH);
 		showTheMessageButton.setText("Show the Message Box");
 		showTheMessageButton.setBounds(10, 10, 196, 24);
+		
 		showTheMessageButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				MessageBox mb = new MessageBox(messageboxDemoShell, SWT.OK|SWT.ICON_ERROR);
@@ -37,6 +38,7 @@ public class UsingMessageBox_1 {
 			if (!display.readAndDispatch())
 				display.sleep();
 		}
+		
 		display.dispose();
 
 	}

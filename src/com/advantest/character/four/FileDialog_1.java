@@ -23,6 +23,7 @@ public class FileDialog_1 {
 				fileDialog.open();
 			}
 		});
+		
 		openFiledialogButton.setText("Open FileDialog");
 		openFiledialogButton.setBounds(49, 24, 115, 25);
 		shell.open();

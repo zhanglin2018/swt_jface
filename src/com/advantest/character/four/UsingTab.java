@@ -13,6 +13,7 @@ public class UsingTab {
 	public static void main(String[] args) {
 		Display display = Display.getDefault();
 		Shell tabfolderDemoShell = new Shell(display);
+		
 		tabfolderDemoShell.setText("TabFolder Demo");
 		tabfolderDemoShell.setSize(270, 288);
 

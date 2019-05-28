@@ -18,12 +18,15 @@ public class UsingDirectoryDialog {
 
 		final Button button = new Button(shell, SWT.NONE);
 		button.addSelectionListener(new SelectionAdapter() {
+			
 			public void widgetSelected(final SelectionEvent e) {
 				DirectoryDialog dirDialog = new DirectoryDialog(shell);
 				dirDialog.setFilterPath("D:\\");
 				System.out.println(dirDialog.open());
 			}
+			
 		});
+		
 		button.setText("Open DirectoryDialog");
 		button.setBounds(20, 25, 135, 25);
 		shell.open();

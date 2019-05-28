@@ -17,18 +17,22 @@ public class FileDialog_2 {
 		shell.setSize(225, 111);
 
 		final Button openFiledialogButton = new Button(shell, SWT.NONE);
+		
 		openFiledialogButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(final SelectionEvent e) {
+				
 				FileDialog fileDialog = new FileDialog(shell, SWT.OPEN);
 
 				fileDialog.setFilterNames(new String[] { "Text Files",
 						"Executable Files", "Both files", "All files" });
+				
 				fileDialog.setFilterExtensions(new String[] { "*.txt", "*.exe",
 						"*.exe;*.txt", "*.*" });
 
 				fileDialog.open();
 			}
 		});
+		
 		openFiledialogButton.setText("Open FileDialog");
 		openFiledialogButton.setBounds(49, 24, 115, 25);
 		shell.open();

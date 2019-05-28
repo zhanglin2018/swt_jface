@@ -27,8 +27,6 @@ public class EnhancedToolBar {
 		toolItem1.setWidth(120);
 		toolItem1.setText("DROP DOWN");
 		
-		
-
 		shell.open();
 
 		while (!shell.isDisposed()) {

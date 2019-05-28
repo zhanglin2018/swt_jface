@@ -28,7 +28,7 @@ public class UsingToolbar {
 
 		final ToolItem toolItem1 = new ToolItem(horToolBar, SWT.NONE);
 		toolItem1.setImage(toolBarImage1);
-		toolItem1.setToolTipText("ÌבÊ¾");
+		toolItem1.setToolTipText("tool tip");
 		toolItem1.setText("Item 1");
 
 		final ToolItem toolItem2 = new ToolItem(horToolBar, SWT.CHECK);
@@ -42,6 +42,7 @@ public class UsingToolbar {
 		final ToolItem toolItem4 = new ToolItem(horToolBar, SWT.RADIO);
 		toolItem4.setImage(toolBarImage4);
 		toolItem4.setText("Item 4");
+		
 		shell.open();
 
 		while (!shell.isDisposed()) {
@@ -52,6 +53,7 @@ public class UsingToolbar {
 		toolBarImage2.dispose();
 		toolBarImage3.dispose();
 		toolBarImage4.dispose();
+		
 		display.dispose();
 	}
 
